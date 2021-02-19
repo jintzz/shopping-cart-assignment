@@ -61,6 +61,7 @@ export class CartServiceService {
       this.cartData.forEach(item => {
         currentCount = currentCount + item.count;
         cartPrice = cartPrice + (item.count * item.price);
+        item.itemTotalCost = item.count * item.price;
       });
     }
     this.cartCount = currentCount;
