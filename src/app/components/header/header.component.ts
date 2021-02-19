@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartServiceService } from "../../services/cart-service.service";
 @Component({
   selector: 'app-header',
@@ -10,24 +11,35 @@ export class HeaderComponent implements OnInit {
   cartData: any;
   cartSum: any;
 
-  constructor(private cartService: CartServiceService) { }
+  constructor(private cartService: CartServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartCount = 0;
     this.cartData = [];
     this.cartSum = 0;
 
-    console.log(this.cartCount);
     this.loadCart();
+    this.cartService.initialLoad();
   }
   loadCart() {
     this.cartService.cartStateObs.subscribe(res => {
       if (res && res.count) {
-        console.log(res);
         this.cartCount = res.count;
         this.cartData = res.items;
         this.cartSum = res.cartSum;
       }
+      else {
+        let sessionData: any = sessionStorage.getItem('cart-data');
+        sessionData = JSON.parse(sessionData); 
+        if (sessionData && sessionData.count) {
+          this.cartCount = sessionData.count;
+          this.cartData = sessionData.items;
+          this.cartSum = sessionData.cartSum;
+        }
+      }
     })
+  }
+  openCart() {
+    this.router.navigate(['/shopping-cart']);
   }
 }

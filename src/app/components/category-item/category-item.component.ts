@@ -11,7 +11,6 @@ export class CategoryItemComponent implements OnInit {
   @Input() item: any;
   @Input() index: any;
   ngOnInit(): void {
-    console.log(this.item)
   }
 
 }

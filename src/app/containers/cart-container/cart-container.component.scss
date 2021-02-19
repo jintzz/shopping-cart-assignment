@@ -1,0 +1,92 @@
+@import "../../global-styles/variables.scss";
+@import "../../global-styles/mixins.scss";
+
+
+.container-wrapper {
+  background-color: $lt-grey;
+  padding-top: 3rem;
+  height: calc(100vh - 5.5rem);
+  display: flex;
+  flex-direction: column;
+
+  @include screen("md") {
+    height: calc(100vh -7rem);
+  }
+
+  article {
+    width: 100%;
+    background-color: $white;
+    margin-bottom: 2rem;
+  }
+
+  .container-title {
+    padding: 1.5rem;
+
+    p {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 600;
+
+      strong {
+        font-size: 2.4rem;
+      }
+    }
+  }
+
+  .cart-item-wrapper {
+    background-color: transparent;
+    ;
+  }
+
+  .lowest-price-wrapper {
+    max-height: 12rem;
+    width: 98%;
+    margin: 0 auto 2rem;
+    border-radius: 5px;
+
+    figure {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+
+      img {
+        max-width: 15rem;
+        float: left;
+      }
+
+      figcaption {
+        float: left;
+        margin-left: 1rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .checkout-wrapper {
+    margin-top: auto;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    p {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 1.5rem;
+      color: $white;
+      background-color: $dark-pink;
+      border: none;
+      text-align: left;
+      border-radius: .3rem;
+      display: flex;
+      justify-content: space-between;
+
+      .final-price {
+        margin-left: auto;
+      }
+    }
+  }
+}

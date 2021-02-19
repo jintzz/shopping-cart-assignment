@@ -25,7 +25,7 @@ export class ResourceCollectionService {
   }
 
   addToCart(data: any): Observable<any> {
-    return this.http.post<any>(`${this.APIEndPoint}/addToCart`, data)
+    return this.http.post<any>(`${this.APIEndPoint}/addToCart`,data)
   }
 
 }

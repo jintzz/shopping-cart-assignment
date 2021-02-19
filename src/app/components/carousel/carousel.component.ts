@@ -24,7 +24,6 @@ export class CarouselComponent implements OnInit {
 
   fetchCarouselData() {
     this.dataService.getCarouselData().subscribe(data => {
-      console.log(data)
       if (data) this.carouselItem = data;
     })
   }

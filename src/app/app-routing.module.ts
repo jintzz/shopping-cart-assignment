@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './containers/landing-page/landing-page.component';
 import { HomePageComponent } from './containers/home-page/home-page.component';
 import { ProductListPageComponent } from './containers/product-list-page/product-list-page.component';
+import { CartContainerComponent } from './containers/cart-container/cart-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'register', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'product-list', component: ProductListPageComponent },
+  { path: 'shopping-cart', component: CartContainerComponent },
 ];
 
 @NgModule({

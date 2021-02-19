@@ -1,0 +1,19 @@
+<div class="item-wrapper" *ngIf="cartItem && cartItem.count>0">
+  <aside class="item-image-wrapper">
+    <img [src]="cartItem.imgUrl | alterSource">
+  </aside>
+  <section class="item-detail-wrapper">
+    <h3>{{cartItem.item}}</h3>
+    <div class="count-button-container">
+      <button (click)="counter('remove')">-</button>
+      <span>
+        {{cartItem.count}}
+      </span>
+      <button (click)="counter('add')">+</button>
+      <span> X {{cartItem.price}}</span>
+      <span class="total-price">
+        Rs.{{cartItem.itemTotalCost}}
+      </span>
+    </div>
+  </section>
+</div>

@@ -11,13 +11,14 @@ import { HomePageComponent } from './containers/home-page/home-page.component';
 import { ProductListPageComponent } from './containers/product-list-page/product-list-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlterSourcePipe } from './pipes/alter-source.pipe';
+import { CartContainerComponent } from './containers/cart-container/cart-container.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,13 @@ import { AlterSourcePipe } from './pipes/alter-source.pipe';
     ProductListPageComponent,
     HeaderComponent,
     FooterComponent,
-    ShoppingCartComponent,
+    ShoppingCartItemComponent,
     CarouselComponent,
     ProductItemComponent,
     CategoryItemComponent,
     LoginFormComponent,
-    AlterSourcePipe
+    AlterSourcePipe,
+    CartContainerComponent
   ],
   imports: [
     BrowserModule,

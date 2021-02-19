@@ -36,27 +36,22 @@ export class LoginFormComponent implements OnInit {
   validateField(field: string) {
     switch (field) {
       case "firstName": {
-        console.log('firstName is', this.userForm.firstName);
         this.formError.firstName = this.namePattern.test(this.userForm.firstName) ? false : true;
         break;
       };
       case "lastName": {
-        console.log('firstName is', this.userForm.lastName);
         this.formError.lastName = this.namePattern.test(this.userForm.lastName) ? false : true;
         break;
       };
       case "email": {
-        console.log('firstName is', this.userForm.email);
         this.formError.email = this.emailPattern.test(this.userForm.email) ? false : true;
         break;
       };
       case "password": {
-        console.log('firstName is', this.userForm.password);
         this.formError.password = this.pwdPattern.test(this.userForm.password) ? false : true;
         break;
       };
       case "confirmPwd": {
-        console.log('firstName is', this.userForm.confirmPwd);
         this.formError.confirmPwd = this.userForm.password ?
           this.userForm.password === this.userForm.confirmPwd ?
             false : true : false;
@@ -66,7 +61,6 @@ export class LoginFormComponent implements OnInit {
     this.enableSubmit();
   }
   enableSubmit() {
-    console.log(this.formError)
     if (this.isLogin) {
       if (this.userForm.email && !this.formError.email && this.userForm.password && !this.formError.password)
         this.submitEnable = true;

@@ -17,7 +17,6 @@ export class HomePageComponent implements OnInit {
 
   fetchCategoryData() {
     this.dataService.getCategoryData().subscribe(data => {
-      console.log(data)
       if (data) this.categoryItem = data.filter(item => item.enabled);
     })
   }

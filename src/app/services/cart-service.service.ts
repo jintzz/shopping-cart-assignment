@@ -9,6 +9,7 @@ export interface cartModel {
   count: number;
   price: any;
   category: string;
+  itemTotalCost?: any;
 }
 
 @Injectable({
@@ -24,15 +25,19 @@ export class CartServiceService {
   constructor(private dataService: ResourceCollectionService) { }
 
   addItemToCart(data: cartModel) {
-         this.dataService.addToCart({ id: data.id }).subscribe(res => {
-          if (res && res.response == "Success") {
-            this.modifyCart(data);
-          }
-        }); 
+    this.dataService.addToCart({ id: data.id }).subscribe(res => {
+      if (res && res.response == "Success") {
+        this.modifyCart(data);
+      }
+    });
     this.modifyCart(data); // remove once cors issue is resolved
   }
   modifyCart(item: any) {
     if (!this.cartData.length) {
+      item = {
+        ...item,
+        itemTotalCost: item.count * item.price
+      }
       this.cartData.push(item);
     }
     else {
@@ -41,11 +46,11 @@ export class CartServiceService {
         if (data.id === item.id && data.category === item.category) {
           data.count = data.count + 1;
           itemPresent = true;
+          data.itemTotalCost = data.count * data.price
         }
       });
       if (!itemPresent) this.cartData.push(item);
     }
-    sessionStorage.setItem('cart-data', JSON.stringify(this.cartData));
     this.updateCount()
   }
 
@@ -56,18 +61,31 @@ export class CartServiceService {
       this.cartData.forEach(item => {
         currentCount = currentCount + item.count;
         cartPrice = cartPrice + (item.count * item.price);
-
       });
-
     }
     this.cartCount = currentCount;
     this.cartPrice = cartPrice;
+    this.dispatchCartData();
+  }
+
+  dispatchCartData() {
     const payload = {
       items: this.cartData,
       count: this.cartCount,
       cartSum: this.cartPrice
     }
     this.cartState.next(payload);
+    sessionStorage.setItem('cart-data', JSON.stringify(payload));
+  }
+  initialLoad() {
+    let payload: any = sessionStorage.getItem('cart-data');
+    payload = JSON.parse(payload);
+    if (payload && payload.count > 0) {
+      this.cartData = payload.items;
+      this.cartCount = payload.count;
+      this.cartPrice = payload.cartSum;
+      this.cartState.next(payload);
+    }
   }
   itemUpdate(item: any, action: string) {
     this.cartData.forEach(data => {

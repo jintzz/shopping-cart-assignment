@@ -21,13 +21,11 @@ export class ProductListPageComponent implements OnInit {
     this.dataService.getProductList().subscribe(data => {
       if (data) this.productListArray = data;
       this.filteredList = data;
-      console.log(this.filteredList)
     })
   }
 
   fetchCategoryData() {
     this.dataService.getCategoryData().subscribe(data => {
-      console.log(data)
       if (data) this.categoryItem = data.filter(item => item.enabled);
     })
   }
