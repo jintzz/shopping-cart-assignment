@@ -1,0 +1,7 @@
+@import "./global-styles/variables.scss";
+
+.content-holder{
+    max-width: $max-width;
+    margin: 0 auto;
+    font-size: 1.6rem;
+}

@@ -1,1 +1,11 @@
-<p>product-list-page works!</p>
+<div class="product-page-container">
+  <aside>
+    <button *ngFor="let category of categoryItem" (click)="filterCategory(category.id)"
+      [ngClass]="{'selected-category':category.id===selectedCategory}">{{category.name}}</button>
+  </aside>
+
+  <section *ngIf="filteredList && filteredList.length" class="product-list-wrapper">
+    <app-product-item *ngFor="let product of filteredList" [product]="product"></app-product-item>
+  </section>
+
+</div>

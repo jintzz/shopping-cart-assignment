@@ -1,0 +1,68 @@
+@import "../../global-styles/variables.scss";
+@import "../../global-styles/mixins.scss";
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+
+  input {
+    padding: 4px;
+    height: 2.5rem;
+    width: 60%;
+    font-size: 1.6rem;
+    border: 0 !important;
+    border-bottom: 1px solid $md-grey !important;
+    border-radius: 0;
+    outline: 0 !important;
+    box-shadow: unset;
+    order: 2;
+
+    @include screen('sm') {
+      width: 75%;
+    }
+  }
+
+  label {
+    margin: 0;
+    order: 1;
+    color: $dark-grey;
+    transition: color 0.1s;
+  }
+
+  .form-control-error {
+    order: 3;
+    color: $lt-pink;
+    margin-top: 0.5rem;
+  }
+
+  input:focus+label {
+    color: $ab-aqua;
+    transform: translateY(-5px);
+  }
+
+  input:focus {
+    border-bottom: 2px solid $ab-aqua !important;
+  }
+}
+
+button {
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+  margin: 2rem 0px 2rem 0px;
+  background-color: $dark-pink;
+  color: $white;
+  cursor: pointer;
+
+  @include screen('sm') {
+    width: 75%;
+  }
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: initial;
+}

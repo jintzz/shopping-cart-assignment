@@ -1,0 +1,18 @@
+
+@mixin screen($size) {
+    @if $size=='sm'{
+        @media (max-width:640px) {
+            @content;
+        }
+    }
+    @if $size=='md'{
+        @media screen and (min-width:641px) and (max-width: 1100px) {//(earlier 1007px)
+            @content;
+        }
+    }
+    @if $size=='lg'{
+        @media (min-width:1008px) {
+            @content;
+        }
+    }
+}

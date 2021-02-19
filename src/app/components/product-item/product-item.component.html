@@ -1,1 +1,19 @@
-<p>product-item works!</p>
+<article *ngIf="product" class="item-wrapper">
+  <h2>{{product.name}}</h2>
+  <div class="detail-wrapper">
+    <figure>
+      <img [src]="product.imageURL | alterSource">
+    </figure>
+    <aside>
+      <span>
+        {{product.description}}
+      </span>
+    </aside>
+    <div class="button-wrapper">
+      <div class="price-tag">MRP Rs.{{product.price}}</div>
+      <button (click)="buyItem(product)">
+        Buy now<span class="button-price-tag"> @ MRP Rs.{{product.price}}</span>
+      </button>
+    </div>
+  </div>
+</article>

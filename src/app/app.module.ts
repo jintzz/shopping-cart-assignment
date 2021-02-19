@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +16,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlterSourcePipe } from './pipes/alter-source.pipe';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,17 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     CarouselComponent,
     ProductItemComponent,
     CategoryItemComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AlterSourcePipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

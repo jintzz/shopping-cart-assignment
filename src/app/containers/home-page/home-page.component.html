@@ -1,1 +1,7 @@
-<p>home-page works!</p>
+<section class="carousel-container">
+    <app-carousel></app-carousel>
+</section>
+<section class="category-container" *ngIf="categoryItem && categoryItem.length">
+    <app-category-item *ngFor="let category of categoryItem; let i=index" [item]=category [index]="i">
+    </app-category-item>
+</section>

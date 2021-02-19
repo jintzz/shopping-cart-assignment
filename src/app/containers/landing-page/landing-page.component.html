@@ -1,1 +1,13 @@
-<p>landing-page works!</p>
+<div class="login-wrapper">
+    <section *ngIf="!loginPage">
+        <h1>Signup</h1>
+        <p>We do not share your personal details with anyone</p>
+    </section>
+    <section *ngIf="loginPage">
+        <h1>Login</h1>
+        <p>Get access to your orders, wishlist and recommendations</p>
+    </section>
+    <section>
+        <app-login-form [isLogin]='loginPage'></app-login-form>
+    </section>
+</div>

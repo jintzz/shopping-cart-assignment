@@ -1,1 +1,7 @@
-<p>carousel works!</p>
+<ngb-carousel *ngIf="carouselItem && carouselItem.length">
+    <ng-template ngbSlide *ngFor="let item of carouselItem">
+        <div class="picsum-img-wrapper">
+            <img [src]="item.bannerImageUrl | alterSource" [alt]="item.bannerImageAlt">
+        </div>
+    </ng-template>
+</ngb-carousel>

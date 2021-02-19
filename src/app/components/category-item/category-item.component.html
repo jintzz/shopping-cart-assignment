@@ -1,1 +1,15 @@
-<p>category-item works!</p>
+<article class="item-wrapper">
+    <aside class="imgContainer"  [ngClass]="{'even-item':index % 2 === 0, 'odd-item' :index % 2 === 1}">
+        <figure>
+            <img [src]="item.imageUrl | alterSource" alt="item.name">
+        </figure>
+    </aside>
+    <section class="infoContainer"  [ngClass]="{'even-item':index % 2 === 1, 'odd-item' :index % 2 === 0}">
+        <h2> {{item.name}}</h2>
+        <p>{{item.description}}</p>
+
+        <button routerLink="/product-list">
+            Explore {{ item.name | lowercase}}
+        </button>
+    </section>
+</article>

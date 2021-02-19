@@ -1,0 +1,76 @@
+@import "../../global-styles/variables.scss";
+@import "../../global-styles/mixins.scss";
+
+ngb-carousel img {
+    width: 100%;
+    max-height: 19rem;
+    outline: none;
+}
+.carousel{
+    overflow: hidden;
+}
+.carousel-inner {
+    overflow: visible;
+}
+
+.carousel-item {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    //transition: opacity .5s ease-in-out, visibility .5s;
+    z-index: -1;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.carousel-control-prev {
+    z-index: 20;
+}
+
+.carousel-control-next {
+    z-index: 20;
+}
+
+.carousel-indicators {
+    z-index: 20;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 4rem;
+  width: 5.5rem;
+  background-image: none;
+  background-color: $dark-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-control-next, .carousel-control-prev{
+    width:6%;
+}
+.carousel-control-next-icon:after
+{
+  content: 'Next';
+  font-size: 2rem;
+  color: $white;
+}
+.carousel-control-prev-icon:after
+{
+  content: 'Prev';
+  font-size:2rem;
+  color: $white;
+}
+
+.carousel .carousel-indicators li {
+    width: 1rem;
+   height: 1rem;
+   border-radius: 50%;
+   margin-right: 2rem;
+   background-color: $dark-grey;
+   :last-child{
+       margin-right: 0;
+   }
+ }

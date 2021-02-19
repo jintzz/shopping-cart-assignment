@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,600,700");
+@import "./app/global-styles/variables.scss";
+@import "./app/global-styles/mixins.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Dosis, "Helvetica Neue", sans-serif !important;
+}
+body,
+html {
+    min-height: 100vh;
+    height: auto;
+    font-size: 10px;
+    @include screen("sm") {
+        font-size: 8px;
+    }
+    @include screen("md") {
+        font-size: 9px;
+    }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}

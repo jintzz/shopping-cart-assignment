@@ -1,0 +1,15 @@
+@import "../../global-styles/variables.scss";
+@import "../../global-styles/mixins.scss";
+
+.carousel-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 6px -6px $dark-grey;
+    height:auto;
+    @include screen("lg") {
+        height:20rem;
+    }
+    @include screen("md") {
+        height:20rem;
+    }
+}
