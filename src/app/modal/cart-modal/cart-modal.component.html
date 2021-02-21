@@ -1,0 +1,34 @@
+<header>
+  <article class="container-title">
+    <p><strong>My Cart </strong>(1 item)</p>
+  </article>
+</header>
+<main>
+  <article class="cart-item-wrapper" *ngIf="cartData && cartData.length">
+    <app-shopping-cart-item *ngFor="let item of cartData" [cartItem]=item></app-shopping-cart-item>
+  </article>
+  <article class="lowest-price-wrapper" *ngIf="cartData && cartData.length">
+    <figure>
+      <img src="/assets/images/lowest-price.png">
+      <figcaption>You won't find it cheaper anywhere</figcaption>
+    </figure>
+  </article>
+  <article *ngIf="cartCount<1" class="empty-cart-description">
+    <div>
+      <h2> No items in your cart</h2>
+      <p>your favourite items are just a click away</p>
+    </div>
+  </article>
+</main>
+<footer>
+  <article class="checkout-wrapper">
+    <p *ngIf="cartCount > 0">Promo code can be applied on payment page</p>
+    <button>
+      <span *ngIf="cartCount > 0"> Proceed to Checkout</span>
+      <span *ngIf="cartCount > 0" class="final-price">Rs.{{cartSum}} &nbsp; &nbsp;> </span>
+      <span *ngIf="cartCount === 0" class="empty-cart-button">
+        Start Shopping
+      </span>
+    </button>
+  </article>
+</footer>

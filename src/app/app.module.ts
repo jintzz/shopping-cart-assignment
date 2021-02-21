@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlterSourcePipe } from './pipes/alter-source.pipe';
 import { CartContainerComponent } from './containers/cart-container/cart-container.component';
+import { CartModalComponent } from './modal/cart-modal/cart-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { CartContainerComponent } from './containers/cart-container/cart-contain
     CategoryItemComponent,
     LoginFormComponent,
     AlterSourcePipe,
-    CartContainerComponent
+    CartContainerComponent,
+    CartModalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +46,11 @@ import { CartContainerComponent } from './containers/cart-container/cart-contain
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [CartModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

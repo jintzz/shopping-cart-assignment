@@ -15,9 +15,10 @@ export class CartContainerComponent implements OnInit {
   ngOnInit(): void {
     this.listenCart();
   }
+  
   listenCart() {
     this.cartService.cartStateObs.subscribe(data => {
-      if (data && data.count) {
+      if (data && Object.keys(data) && Object.keys(data).length) {
         this.itemsInCart = data.items;
         this.totalPrice = data.cartSum;
         this.count = data.count

@@ -38,6 +38,23 @@
     ;
   }
 
+  .empty-cart-description {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    div {
+      text-align: center;
+      font-weight: 600;
+
+      h2 {
+        font-weight: bold;
+      }
+    }
+  }
+
   .lowest-price-wrapper {
     max-height: 12rem;
     width: 98%;
@@ -86,6 +103,10 @@
 
       .final-price {
         margin-left: auto;
+      }
+
+      .empty-cart-button {
+        margin: 0 auto;
       }
     }
   }
