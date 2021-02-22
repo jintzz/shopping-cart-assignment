@@ -27,14 +27,14 @@ export class HeaderComponent implements OnInit {
     this.cartService.initialLoad();
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
-    console.log(this.screenWidth, this.screenHeight)
+    this.cartService.dispatchScreenSize(this.screenWidth)
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
-    console.log(this.screenWidth, this.screenHeight)
+    this.cartService.dispatchScreenSize(this.screenWidth)
   }
   loadCart() {
     this.cartService.cartStateObs.subscribe(res => {

@@ -1,13 +1,14 @@
 <header>
   <article class="container-title">
-    <p><strong>My Cart </strong>(1 item)</p>
+    <span><strong>My Cart </strong><span *ngIf="cartCount>0">({{cartCount}} item)</span></span>
+    <button mat-dialog-close>X</button>
   </article>
 </header>
-<main>
+<main [ngClass]="{'empty-cart-container':cartCount<1}">
   <article class="cart-item-wrapper" *ngIf="cartData && cartData.length">
     <app-shopping-cart-item *ngFor="let item of cartData" [cartItem]=item></app-shopping-cart-item>
   </article>
-  <article class="lowest-price-wrapper" *ngIf="cartData && cartData.length">
+  <article class="lowest-price-wrapper" *ngIf="cartCount>0">
     <figure>
       <img src="/assets/images/lowest-price.png">
       <figcaption>You won't find it cheaper anywhere</figcaption>

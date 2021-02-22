@@ -29,7 +29,7 @@
     padding: 1rem;
 
     @include screen('md') {
-        grid-column: 2/8;
+      grid-column: 2/8;
     }
 
     .count-button-container {
@@ -37,6 +37,7 @@
       flex-direction: row;
       margin-top: 1rem;
       font-weight: 600;
+      align-items: center;
 
       .total-price {
         margin-left: auto;

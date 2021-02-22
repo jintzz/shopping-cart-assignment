@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
+import * as Hammer from 'hammerjs';
+import { HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlterSourcePipe } from './pipes/alter-source.pipe';
 import { CartContainerComponent } from './containers/cart-container/cart-container.component';
 import { CartModalComponent } from './modal/cart-modal/cart-modal.component';
+
+@Injectable()
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 @NgModule({
   declarations: [
@@ -47,9 +56,13 @@ import { CartModalComponent } from './modal/cart-modal/cart-modal.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    HammerModule
   ],
-  providers: [],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig,
+  }],
   entryComponents: [CartModalComponent],
   bootstrap: [AppComponent]
 })

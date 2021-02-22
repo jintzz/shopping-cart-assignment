@@ -36,6 +36,15 @@ input:-webkit-autofill:active {
 mat-dialog-container#cart-modal {
   position: relative;
   right: calc((100% - 1000px)/2);
-  top: 30px;
+  top: 60px;
   padding: 0;
+  width: 50rem;
+  font-size: 1.6rem;
+  font-weight: 600 !important;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  background-color:#efefef ;
+}
+mat-dialog-container#cart-modal::-webkit-scrollbar {
+  display: none;
 }

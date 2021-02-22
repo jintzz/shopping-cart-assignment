@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { LandingPageComponent } from './containers/landing-page/landing-page.component';
 import { HomePageComponent } from './containers/home-page/home-page.component';
 import { ProductListPageComponent } from './containers/product-list-page/product-list-page.component';

@@ -22,14 +22,16 @@ export class CartServiceService {
   cartPrice: any;
   private cartState = new BehaviorSubject<any>({});
   cartStateObs = this.cartState.asObservable();
+  private screenSize = new BehaviorSubject<any>({});
+  screenSizeObs = this.screenSize.asObservable();
   constructor(private dataService: ResourceCollectionService) { }
 
   addItemToCart(data: cartModel) {
-/*     this.dataService.addToCart({ id: data.id }).subscribe(res => {
-      if (res && res.response == "Success") {
-        this.modifyCart(data);
-      }
-    }); */
+    /*     this.dataService.addToCart({ id: data.id }).subscribe(res => {
+          if (res && res.response == "Success") {
+            this.modifyCart(data);
+          }
+        }); */
     this.modifyCart(data); // remove once cors issue is resolved
   }
   modifyCart(item: any) {
@@ -78,7 +80,7 @@ export class CartServiceService {
     this.cartState.next(payload);
     sessionStorage.setItem('cart-data', JSON.stringify(payload));
   }
-  
+
   initialLoad() {
     let payload: any = sessionStorage.getItem('cart-data');
     payload = JSON.parse(payload);
@@ -102,5 +104,8 @@ export class CartServiceService {
     });
     this.cartData = this.cartData.filter(cartItem => cartItem.count > 0);
     this.updateCount();
+  }
+  dispatchScreenSize(size: number) {
+    this.screenSize.next(size);
   }
 }
