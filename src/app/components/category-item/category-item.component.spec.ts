@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AlterSourcePipe } from '../../pipes/alter-source.pipe';
 
 import { CategoryItemComponent } from './category-item.component';
 
@@ -8,14 +9,19 @@ describe('CategoryItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryItemComponent ]
+      declarations: [CategoryItemComponent, AlterSourcePipe]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CategoryItemComponent);
     component = fixture.componentInstance;
+    component.item = {
+      name: "test",
+      description: 'test',
+      imageUrl: 'xxx'
+    }
     fixture.detectChanges();
   });
 

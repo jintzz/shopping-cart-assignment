@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { CarouselComponent } from './carousel.component';
-
+import { NgbCarousel, NgbCarouselConfig, NgbConfig } from '@ng-bootstrap/ng-bootstrap';
 describe('CarouselComponent', () => {
   let component: CarouselComponent;
   let fixture: ComponentFixture<CarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
+      declarations: [CarouselComponent],
+      imports: [HttpClientModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +23,5 @@ describe('CarouselComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

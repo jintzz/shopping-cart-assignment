@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CartModalComponent } from './cart-modal.component';
 
@@ -8,9 +10,14 @@ describe('CartModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartModalComponent ]
+      declarations: [CartModalComponent],
+      imports: [MatDialogModule, HttpClientModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

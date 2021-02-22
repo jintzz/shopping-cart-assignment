@@ -7,17 +7,18 @@
     </div>
     <div class="navigation">
       <nav>
-        <a href="/home">Home</a>
-        <a href="/product-list">Products</a>
+        <a href="/home" aria-label="Go to home screen">Home</a>
+        <a href="/product-list" aria-label="Go to product list page">Products</a>
       </nav>
     </div>
     <div class="imp-links">
       <div class="link-wrapper">
         <nav class="form-links">
-          <a href="/login">SignIn</a>
-          <a href="/register">Register</a>
+          <a href="/login" aria-label="Sign in to get started">SignIn</a>
+          <a href="/register" aria-label="Register here">Register</a>
         </nav>
-        <button aria-label="Cart button" class="cart" (click)="openCart()" #openCartButton mat-raised-button id="Cart-button">
+        <button aria-label="shopping cart" class="cart" (click)="openCart()" #openCartButton mat-raised-button
+          id="Cart-button" type="button">
           <svg version="1.1" id="cart-icon" focusable="false" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
             style="enable-background:new 0 0 24 24;" xml:space="preserve">

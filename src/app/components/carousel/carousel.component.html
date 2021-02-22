@@ -1,7 +1,7 @@
-<ngb-carousel *ngIf="carouselItem && carouselItem.length" #bannerCarousel>
-    <ng-template ngbSlide *ngFor="let item of carouselItem">
-        <div class="picsum-img-wrapper" (swipe)="onSwipe($event,bannerCarousel)">
-            <img [src]="item.bannerImageUrl | alterSource" [alt]="item.bannerImageAlt">
-        </div>
-    </ng-template>
+<ngb-carousel *ngIf="carouselItem && carouselItem.length" #bannerCarousel role="carousel">
+  <ng-template ngbSlide *ngFor="let item of carouselItem" aria-label="{{item.bannerImageAlt}}">
+    <div class="picsum-img-wrapper" (swipe)="onSwipe($event,bannerCarousel)" >
+      <img [src]="item.bannerImageUrl | alterSource" [alt]="item.bannerImageAlt">
+    </div>
+  </ng-template>
 </ngb-carousel>

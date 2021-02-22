@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ShoppingCartItemComponent } from './shopping-cart-item.component';
 
@@ -8,9 +9,10 @@ describe('ShoppingCartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShoppingCartItemComponent ]
+      imports: [HttpClientModule],
+      declarations: [ShoppingCartItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +23,12 @@ describe('ShoppingCartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should update count', () => {
+    spyOn(component.cartService, 'itemUpdate');
+    component.counter('add');
+    expect(component.cartService.itemUpdate).toHaveBeenCalled();
+    component.counter('remove');
+    expect(component.cartService.itemUpdate).toHaveBeenCalled();
   });
 });

@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -8,9 +10,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      imports: [HttpClientModule, RouterTestingModule, MatDialogModule],
+      declarations: [HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
