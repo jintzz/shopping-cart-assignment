@@ -122,6 +122,7 @@
 
   .dropdown:hover .dropbtn {
     opacity: .8;
+
     .arrow-down {
       -webkit-transform: rotate(-90deg);
       -moz-transform: rotate(-90deg);
@@ -145,6 +146,12 @@
       grid-template-columns: auto auto auto auto;
       flex: 4;
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  app-product-item {
+    @include screen('lg') {
+      display: flex;
     }
   }
 }

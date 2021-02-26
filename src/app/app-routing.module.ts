@@ -6,7 +6,7 @@ import { ProductListPageComponent } from './containers/product-list-page/product
 import { CartContainerComponent } from './containers/cart-container/cart-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LandingPageComponent },
   { path: 'register', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },

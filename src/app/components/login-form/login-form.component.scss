@@ -10,7 +10,7 @@
   input {
     padding: 4px;
     height: 2.5rem;
-    width: 60%;
+    width: 75%;
     font-size: 1.6rem;
     border: 0 !important;
     border-bottom: 1px solid $md-grey !important;
@@ -19,8 +19,8 @@
     box-shadow: unset;
     order: 2;
 
-    @include screen('sm') {
-      width: 75%;
+    @include screen('md') {
+      width: 60%;
     }
   }
 
@@ -48,7 +48,7 @@
 }
 
 button {
-  width: 60%;
+  width: 75%;
   border: none;
   border-radius: 0;
   padding: 1rem;
@@ -57,8 +57,8 @@ button {
   color: $white;
   cursor: pointer;
 
-  @include screen('sm') {
-    width: 75%;
+  @include screen('md') {
+    width: 60%;
   }
 }
 

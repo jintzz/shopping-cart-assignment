@@ -1,7 +1,7 @@
 <header>
-  <article class="container-title">
+  <article class="container-title" tabindex="0">
     <span><strong>My Cart </strong><span *ngIf="cartCount>0">({{cartCount}} item)</span></span>
-    <button mat-dialog-close>X</button>
+    <button mat-dialog-close aria-label="close">X</button>
   </article>
 </header>
 <main [ngClass]="{'empty-cart-container':cartCount<1}">
@@ -14,7 +14,7 @@
       <figcaption>You won't find it cheaper anywhere</figcaption>
     </figure>
   </article>
-  <article *ngIf="cartCount<1" class="empty-cart-description">
+  <article *ngIf="cartCount<1" class="empty-cart-description"  tabindex="0">
     <div>
       <h2> No items in your cart</h2>
       <p>your favourite items are just a click away</p>

@@ -1,5 +1,5 @@
 <section class="container-wrapper">
-  <article class="container-title" *ngIf="count > 0">
+  <article class="container-title" *ngIf="count > 0" tabindex="0">
     <p><strong>My Cart </strong>({{count}} item)</p>
   </article>
   <article class="cart-item-wrapper" *ngIf="itemsInCart && itemsInCart.length">
@@ -11,12 +11,12 @@
       <figcaption>You won't find it cheaper anywhere</figcaption>
     </figure>
   </article>
-  <article *ngIf="count<1" class="empty-cart-description">
+  <section *ngIf="count<1" class="empty-cart-description">
     <div>
       <h2> No items in your cart</h2>
       <p>your favourite items are just a click away</p>
     </div>
-  </article>
+  </section>
   <article class="checkout-wrapper">
     <p *ngIf="count > 0">Promo code can be applied on payment page</p>
     <button>

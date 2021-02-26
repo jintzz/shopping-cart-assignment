@@ -1,17 +1,17 @@
-<div class="item-wrapper" *ngIf="cartItem && cartItem.count>0">
-  <aside class="item-image-wrapper">
+<div class="item-wrapper" *ngIf="cartItem && cartItem.count>0" tabindex="0">
+  <figure class="item-image-wrapper">
     <img [src]="cartItem.imgUrl | alterSource">
-  </aside>
+  </figure>
   <section class="item-detail-wrapper">
     <h3>{{cartItem.item}}</h3>
     <div class="count-button-container">
-      <button (click)="counter('remove')">-</button>
+      <button (click)="counter('remove')" aria-label="count decrement">-</button>
       <span>
         {{cartItem.count}}
       </span>
-      <button (click)="counter('add')">+</button>
+      <button (click)="counter('add')" aria-label="count increment">+</button>
       <span> X {{cartItem.price}}</span>
-      <span class="total-price">
+      <span class="total-price" aria-live="polite" tabindex="0">
         Rs.{{cartItem.itemTotalCost}}
       </span>
     </div>

@@ -1,14 +1,12 @@
-<article *ngIf="product" class="item-wrapper">
+<article *ngIf="product" class="item-wrapper" tabindex="0">
   <h2>{{product.name}}</h2>
   <div class="detail-wrapper">
     <figure>
       <img [src]="product.imageURL | alterSource">
     </figure>
-    <aside>
-      <span>
+    <P>
         {{product.description}}
-      </span>
-    </aside>
+    </P>
     <div class="button-wrapper">
       <div class="price-tag">MRP Rs.{{product.price}}</div>
       <button (click)="buyItem(product)">

@@ -13,7 +13,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private router: Router) { }
   route: any;
   submitEnable: boolean = false;
-  emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   namePattern = /^[a-zA-Z]+(?:\s+[a-zA-Z]+)*$/;
   pwdPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   userForm = {
@@ -36,25 +36,26 @@ export class LoginFormComponent implements OnInit {
   validateField(field: string) {
     switch (field) {
       case "firstName": {
-        this.formError.firstName = this.namePattern.test(this.userForm.firstName) ? false : true;
+        this.formError.firstName = !this.namePattern.test(this.userForm.firstName);
         break;
       };
       case "lastName": {
-        this.formError.lastName = this.namePattern.test(this.userForm.lastName) ? false : true;
+        this.formError.lastName = !this.namePattern.test(this.userForm.lastName);
         break;
       };
       case "email": {
-        this.formError.email = this.emailPattern.test(this.userForm.email) ? false : true;
+        this.formError.email = !this.emailPattern.test(this.userForm.email);
         break;
       };
       case "password": {
-        this.formError.password = this.pwdPattern.test(this.userForm.password) ? false : true;
+        this.formError.password = !this.pwdPattern.test(this.userForm.password);
         break;
       };
       case "confirmPwd": {
-        this.formError.confirmPwd = this.userForm.password ?
-          this.userForm.password === this.userForm.confirmPwd ?
-            false : true : false;
+        this.formError.confirmPwd = false;
+        if (this.userForm.password) {
+          this.formError.confirmPwd = !(this.userForm.password === this.userForm.confirmPwd);
+        }
         break;
       };
     }
