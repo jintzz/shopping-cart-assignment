@@ -8,8 +8,10 @@ ngb-carousel img {
 }
 
 ngb-carousel {
-  @include screen('sm') {
-    overflow: visible !important;
+  overflow: visible !important;
+
+  @include screen('md') {
+    overflow: hidden !important;
   }
 }
 
@@ -56,16 +58,17 @@ ngb-carousel {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 4rem;
-  width: 5.5rem;
-  background-image: none;
-  background-color: $dark-grey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 
-  @include screen('sm') {
-    display: none;
+  @include screen('md') {
+    height: 4rem;
+    width: 5.5rem;
+    background-image: none;
+    background-color: $dark-grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 }
 
@@ -76,13 +79,13 @@ ngb-carousel {
 
 .carousel-control-next-icon:after {
   content: 'Next';
-  font-size: 2rem;
+  font-size: $font-20;
   color: $white;
 }
 
 .carousel-control-prev-icon:after {
   content: 'Prev';
-  font-size: 2rem;
+  font-size: $font-20;
   color: $white;
 }
 

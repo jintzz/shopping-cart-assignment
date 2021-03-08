@@ -13,7 +13,7 @@
     height: calc(100vh -7rem);
   }
 
-  article {
+  .article {
     width: 100%;
     background-color: $white;
     margin-bottom: 2rem;
@@ -22,20 +22,19 @@
   .container-title {
     padding: 1.5rem;
 
-    p {
+    .title-paragraph {
       margin: 0;
-      font-size: 1.6rem;
+      font-size: $font-16;
       font-weight: 600;
 
       strong {
-        font-size: 2.4rem;
+        font-size: $font-24;
       }
     }
   }
 
   .cart-item-wrapper {
     background-color: transparent;
-    ;
   }
 
   .empty-cart-description {
@@ -46,13 +45,9 @@
     align-items: center;
     margin: 0;
 
-    div {
+    .empty-cart-content {
       text-align: center;
       font-weight: 600;
-
-      h2 {
-        font-weight: bold;
-      }
     }
   }
 
@@ -62,7 +57,7 @@
     margin: 0 auto 2rem;
     border-radius: 5px;
 
-    figure {
+    .lowest-cart-figure {
       display: flex;
       align-items: center;
       padding: 1rem;
@@ -75,7 +70,7 @@
       figcaption {
         float: left;
         margin-left: 1rem;
-        font-size: 1.8rem;
+        font-size: $font-18;
         font-weight: 600;
       }
     }
@@ -84,23 +79,23 @@
   .checkout-wrapper {
     margin-top: auto;
     padding: 1.5rem;
-    font-size: 1.8rem;
+    font-size: $font-18;
     font-weight: 600;
 
-    p {
+    .checkout-paragraph {
       text-align: center;
     }
 
-    button {
+    .checkout-button {
       width: 100%;
       padding: 1.5rem;
       color: $white;
-      background-color: $dark-pink;
       border: none;
       text-align: left;
       border-radius: .3rem;
       display: flex;
       justify-content: space-between;
+      background-color: $dark-pink;
 
       .final-price {
         margin-left: auto;

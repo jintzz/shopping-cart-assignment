@@ -2,15 +2,16 @@
   <section class="dropdown">
     <button class="dropbtn"><span>{{categoryTitle}}</span><span class="arrow-down">></span></button>
     <div class="dropdown-content">
-      <button *ngFor="let category of categoryItem" (click)="filterCategory(category.id, category.name)">{{category.name}}</button>
+      <button *ngFor="let category of categoryItem"
+        (click)="filterCategory(category.id, category.name)">{{category.name}}</button>
     </div>
   </section>
-  <aside>
+  <aside class="aside">
     <button *ngFor="let category of categoryItem" (click)="filterCategory(category.id, category.name)"
-      [ngClass]="{'selected-category':category.id===selectedCategory}">{{category.name}}</button>
+      [ngClass]="{'selected-category':category.id===selectedCategory}"
+      class="category-button">{{category.name}}</button>
   </aside>
   <section *ngIf="filteredList && filteredList.length" class="product-list-wrapper">
     <app-product-item *ngFor="let product of filteredList" [product]="product"></app-product-item>
   </section>
-
 </div>

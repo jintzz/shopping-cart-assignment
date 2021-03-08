@@ -2,36 +2,51 @@
 @import "../../global-styles/mixins.scss";
 
 .login-wrapper {
-    display: flex;
+  display: flex;
+  max-width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+
+  @include screen("md") {
+    flex-direction: row;
     max-width: 90%;
-    margin: 0 auto;
-    section {
-        margin-top: 4rem;
-        h1 {
-            font-size: 2.4rem;
-            font-weight: bold;
-            @include screen("sm") {
-                font-size: 2.2rem;
-            }
-        }
-        p {
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            @include screen("sm") {
-                font-size: 1.5rem;
-            }
-        }
+  }
+
+  .section {
+    margin-top: 4rem;
+
+    .heading-h1 {
+      font-size: $font-22;
+      font-weight: bold;
+
+      @include screen("md") {
+        font-size: $font-24;
+      }
     }
-    section:first-child {
-        flex: 0.7;
-        @include screen("sm") {
-            padding-right: 1.5rem;
-        }
-        @include screen("md") {
-            padding-right: 1.5rem;
-        }
+
+    .paragraph {
+      font-size: $font-15;
+      margin-top: 2rem;
+
+      @include screen("md") {
+        font-size: $font-16;
+      }
     }
-    section:last-child {
-        flex: 1;
+  }
+
+  .section-intro {
+    width: 80%;
+    margin: 4rem auto 0;
+  }
+
+  @include screen("md") {
+    .section-intro {
+      flex: 0.7;
+      padding-right: 1.5rem;
     }
+
+    .section-form {
+      flex: 1;
+    }
+  }
 }

@@ -1,15 +1,15 @@
 <article *ngIf="product" class="item-wrapper" tabindex="0">
-  <h2>{{product.name}}</h2>
+  <h2 class="heading-h2">{{product.name}}</h2>
   <div class="detail-wrapper">
-    <figure>
+    <figure class="figure">
       <img [src]="product.imageURL | alterSource">
     </figure>
-    <P>
+    <P class="paragraph">
         {{product.description}}
     </P>
     <div class="button-wrapper">
       <div class="price-tag">MRP Rs.{{product.price}}</div>
-      <button (click)="buyItem(product)">
+      <button (click)="buyItem(product)" class="purchase-button">
         Buy now<span class="button-price-tag"> @ MRP Rs.{{product.price}}</span>
       </button>
     </div>

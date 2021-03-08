@@ -6,10 +6,6 @@
     margin-bottom: 3rem;
     box-shadow: 0 8px 6px -6px $dark-grey;
     height:auto;
-    @include screen("lg") {
-        height:20rem;
-        margin-bottom: 2rem;
-    }
     @include screen("md") {
         height:20rem;
         margin-bottom: 2rem;

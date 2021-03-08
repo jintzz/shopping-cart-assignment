@@ -1,25 +1,25 @@
 <section class="container-wrapper">
-  <article class="container-title" *ngIf="count > 0" tabindex="0">
-    <p><strong>My Cart </strong>({{count}} item)</p>
+  <article class="container-title article" *ngIf="count > 0" tabindex="0">
+    <p class="title-paragraph"><strong>My Cart </strong>({{count}} item)</p>
   </article>
-  <article class="cart-item-wrapper" *ngIf="itemsInCart && itemsInCart.length">
+  <article class="cart-item-wrapper article" *ngIf="itemsInCart && itemsInCart.length">
     <app-shopping-cart-item *ngFor="let item of itemsInCart" [cartItem]=item></app-shopping-cart-item>
   </article>
-  <article class="lowest-price-wrapper" *ngIf="itemsInCart && itemsInCart.length">
-    <figure>
+  <article class="lowest-price-wrapper article" *ngIf="itemsInCart && itemsInCart.length">
+    <figure class="lowest-cart-figure">
       <img src="/assets/images/lowest-price.png">
       <figcaption>You won't find it cheaper anywhere</figcaption>
     </figure>
   </article>
   <section *ngIf="count<1" class="empty-cart-description">
-    <div>
+    <div class="empty-cart-content">
       <h2> No items in your cart</h2>
       <p>your favourite items are just a click away</p>
     </div>
   </section>
-  <article class="checkout-wrapper">
-    <p *ngIf="count > 0">Promo code can be applied on payment page</p>
-    <button>
+  <article class="checkout-wrapper article">
+    <p *ngIf="count > 0" class="checkout-paragraph">Promo code can be applied on payment page</p>
+    <button class="checkout-button">
       <span *ngIf="count > 0"> Proceed to Checkout</span>
       <span *ngIf="count > 0" class="final-price">Rs.{{totalPrice}} &nbsp; &nbsp;> </span>
       <span *ngIf="count === 0" class="empty-cart-button">

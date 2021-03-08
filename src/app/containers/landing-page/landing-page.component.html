@@ -1,13 +1,13 @@
-<div class="login-wrapper">
-    <section *ngIf="!loginPage">
-        <h1>Signup</h1>
-        <p>We do not share your personal details with anyone</p>
+<div class="login-wrapper" >
+    <section *ngIf="!loginPage" tabindex="0" class="section section-intro">
+        <h1 class="heading-h1">Signup</h1>
+        <p class="paragraph">We do not share your personal details with anyone</p>
     </section>
-    <section *ngIf="loginPage">
+    <section *ngIf="loginPage" tabindex="0" class="section section-intro">
         <h1>Login</h1>
         <p>Get access to your orders, wishlist and recommendations</p>
     </section>
-    <section>
+    <section class="section section-form">
         <app-login-form [isLogin]='loginPage'></app-login-form>
     </section>
 </div>

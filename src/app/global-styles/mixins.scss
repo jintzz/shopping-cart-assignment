@@ -1,7 +1,7 @@
 
 @mixin screen($size) {
     @if $size=='sm'{
-        @media (max-width:640px) {
+        @media (min-width:190px) {
             @content;
         }
     }
@@ -15,4 +15,12 @@
             @content;
         }
     }
+}
+
+@mixin arrowRotate($angle){
+    -webkit-transform: rotate($angle);
+    -moz-transform: rotate($angle);
+    -ms-transform: rotate($angle);
+    -o-transform: rotate($angle);
+    transform: rotate($angle);
 }

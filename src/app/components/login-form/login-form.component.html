@@ -1,43 +1,46 @@
 <div id="form-container">
   <form (ngSubmit)="login()" role="form" method="post">
-    <div class="field-container" *ngIf="!isLogin">
-      <input type="text" id="fname" (blur)="validateField('firstName')" name="firstName"
-        [(ngModel)]="userForm.firstName">
-      <label for="firstName" aria-labelledby="firstName">First name</label>
-      <p *ngIf="formError.firstName" class="form-control-error" role="alert">Enter a valid first name</p>
+    <div class="form-item-wrapper">
+      <div class="field-container" *ngIf="!isLogin">
+        <input type="text" id="fname" (blur)="validateField('firstName')" name="firstName"
+          [(ngModel)]="userForm.firstName" class="form-control">
+        <label for="firstName" aria-labelledby="firstName" class="form-input-label">First name</label>
+        <p *ngIf="formError.firstName" class="form-control-error" role="alert">Enter a valid first name</p>
+      </div>
+      <div class="field-container" *ngIf="!isLogin">
+        <input type="text" id="lname" class="form-control" name="lastName" (blur)="validateField('lastName')"
+          [(ngModel)]="userForm.lastName">
+        <label for="lastName" aria-labelledby="lastName" class="form-input-label">Last Name</label>
+        <p *ngIf="formError.lastName" class="form-control-error" role="alert">Enter a valid last name</p>
+      </div>
+      <div class="field-container">
+        <input type="email" id="email" class="form-control" name="email" (blur)="validateField('email')"
+          [(ngModel)]="userForm.email">
+        <label for="email" aria-labelledby="email" class="form-input-label">Email</label>
+        <p *ngIf="formError.email" aria-live="assertive" class="form-control-error" role="alert">Enter a valid email
+          address</p>
+      </div>
+      <div class="field-container">
+        <input type="password" id="password" class="form-control" name="password" aria-required="true"
+          aria-describedby="pwd-error" (blur)="validateField('password')" [(ngModel)]="userForm.password">
+        <label for="password" aria-labelledby="password" class="form-input-label">Password</label>
+        <p aria-live="assertive" class="form-control-error" *ngIf="formError.password" role="alert">
+          Password must have Minimum eight characters, at least one letter, one number and one special character
+        </p>
+      </div>
+      <div class="field-container" *ngIf="!isLogin">
+        <input type="password" id="confirmPwd" class="form-control" name="confirmPwd" aria-required="true"
+          aria-describedby="pwd-error" (blur)="validateField('confirmPwd')" [(ngModel)]="userForm.confirmPwd">
+        <label for="confirmPwd" aria-labelledby="confirmPwd" class="form-input-label">Confirm Password</label>
+        <p id="pwd-error" aria-live="assertive" class="form-control-error" *ngIf="formError.confirmPwd">
+          Passwords does not match
+        </p>
+      </div>
+      <button type="submit" [disabled]="!submitEnable" class="form-submit-button">
+        <span *ngIf="!isLogin">SignUp</span>
+        <span *ngIf="isLogin">Login</span>
+      </button>
     </div>
-    <div class="field-container" *ngIf="!isLogin">
-      <input type="text" id="lname" class="form-control" name="lastName" (blur)="validateField('lastName')"
-        [(ngModel)]="userForm.lastName">
-      <label for="lastName" aria-labelledby="lastName">Last Name</label>
-      <p *ngIf="formError.lastName" class="form-control-error" role="alert">Enter a valid last name</p>
-    </div>
-    <div class="field-container">
-      <input type="email" id="email" class="form-control" name="email" (blur)="validateField('email')"
-        [(ngModel)]="userForm.email">
-      <label for="email" aria-labelledby="email">Email</label>
-      <p *ngIf="formError.email" aria-live="assertive" class="form-control-error" role="alert">Enter a valid email
-        address</p>
-    </div>
-    <div class="field-container">
-      <input type="password" id="password" class="form-control" name="password" aria-required="true"
-        aria-describedby="pwd-error" (blur)="validateField('password')" [(ngModel)]="userForm.password">
-      <label for="password" aria-labelledby="password">Password</label>
-      <p aria-live="assertive" class="form-control-error" *ngIf="formError.password" role="alert">
-        Password must have Minimum eight characters, at least one letter, one number and one special character
-      </p>
-    </div>
-    <div class="field-container" *ngIf="!isLogin">
-      <input type="password" id="confirmPwd" class="form-control" name="confirmPwd" aria-required="true"
-        aria-describedby="pwd-error" (blur)="validateField('confirmPwd')" [(ngModel)]="userForm.confirmPwd">
-      <label for="confirmPwd" aria-labelledby="confirmPwd">Confirm Password</label>
-      <p id="pwd-error" aria-live="assertive" class="form-control-error" *ngIf="formError.confirmPwd">
-        Passwords does not match
-      </p>
-    </div>
-    <button type="submit" [disabled]="!submitEnable">
-      <span *ngIf="!isLogin">SignUp</span>
-      <span *ngIf="isLogin">Login</span>
-    </button>
+
   </form>
 </div>

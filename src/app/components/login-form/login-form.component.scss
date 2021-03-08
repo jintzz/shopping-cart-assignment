@@ -1,17 +1,26 @@
 @import "../../global-styles/variables.scss";
 @import "../../global-styles/mixins.scss";
 
+.form-item-wrapper {
+  width: 80%;
+  margin: 0 auto;
+
+  @include screen('md') {
+    width: 60%;
+  }
+}
+
 .field-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  font-size: 1.4rem;
+  font-size: $font-14;
 
-  input {
+  .form-control {
     padding: 4px;
     height: 2.5rem;
-    width: 75%;
-    font-size: 1.6rem;
+    width: 100%;
+    font-size: $font-16;
     border: 0 !important;
     border-bottom: 1px solid $md-grey !important;
     border-radius: 0;
@@ -19,12 +28,9 @@
     box-shadow: unset;
     order: 2;
 
-    @include screen('md') {
-      width: 60%;
-    }
   }
 
-  label {
+  .form-input-label {
     margin: 0;
     order: 1;
     color: $dark-grey;
@@ -37,18 +43,9 @@
     margin-top: 0.5rem;
   }
 
-  input:focus+label {
-    color: $ab-aqua;
-    transform: translateY(-5px);
-  }
-
-  input:focus {
-    border-bottom: 2px solid $ab-aqua !important;
-  }
 }
 
-button {
-  width: 75%;
+.form-submit-button {
   border: none;
   border-radius: 0;
   padding: 1rem;
@@ -56,13 +53,10 @@ button {
   background-color: $dark-pink;
   color: $white;
   cursor: pointer;
-
-  @include screen('md') {
-    width: 60%;
-  }
+  width: 100%;
 }
 
-button:disabled {
+button.form-submit-button:disabled {
   opacity: 0.6;
   cursor: initial;
 }

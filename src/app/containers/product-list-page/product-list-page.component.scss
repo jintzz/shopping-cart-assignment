@@ -3,12 +3,13 @@
 
 .product-page-container {
   display: flex;
+  flex-direction: column;
 
-  @include screen('sm') {
-    flex-direction: column;
+  @include screen('md') {
+    flex-direction: row;
   }
 
-  aside {
+  .aside {
     display: none;
     height: auto;
     background-color: $lt-grey;
@@ -25,7 +26,7 @@
       display: flex;
       flex-direction: column;
 
-      button {
+      .category-button {
         width: 95%;
         margin-left: auto;
         padding: 1rem 0rem;
@@ -37,19 +38,7 @@
     }
 
     @include screen('lg') {
-      display: flex;
-      flex-direction: column;
       flex: 1.3;
-
-      button {
-        width: 95%;
-        margin-left: auto;
-        padding: 1rem 0rem;
-        border: none;
-        border-bottom: 1px solid $md-grey;
-        text-align: left;
-        padding-left: 1rem;
-      }
     }
   }
 
@@ -65,27 +54,19 @@
       display: none;
     }
 
-    @include screen('lg') {
-      display: none;
-    }
-
     .dropbtn {
       padding: 2rem;
       width: 100%;
       background-color: $dark-pink;
       border: none;
       color: $white;
-      font-size: 2rem;
+      font-size: $font-20;
       font-weight: 600;
       display: flex;
       justify-content: space-between;
 
       .arrow-down {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
+        @include arrowRotate(90deg)
       }
     }
   }
@@ -93,26 +74,26 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: $white;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px $black;
     z-index: 1;
   }
 
   .dropdown-content button {
-    color: black;
+    color: $black;
     padding: 1.5rem;
     text-decoration: none;
     display: block;
     border: none;
     width: 100%;
     text-align: left;
-    font-size: 1.8rem;
+    font-size: $font-18;
     font-weight: 600;
   }
 
   .dropdown-content button:hover {
-    background-color: #ddd;
+    background-color: $white;
   }
 
   .dropdown:hover .dropdown-content {
@@ -124,11 +105,7 @@
     opacity: .8;
 
     .arrow-down {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      transform: rotate(-90deg);
+      @include arrowRotate(-90deg);
     }
   }
 

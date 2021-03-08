@@ -3,13 +3,13 @@
     <img [src]="cartItem.imgUrl | alterSource">
   </figure>
   <section class="item-detail-wrapper">
-    <h3>{{cartItem.item}}</h3>
+    <h3 class="heading-h3">{{cartItem.item}}</h3>
     <div class="count-button-container">
-      <button (click)="counter('remove')" aria-label="count decrement">-</button>
+      <button (click)="counter('remove')" aria-label="count decrement" class="count-manage-button">-</button>
       <span>
         {{cartItem.count}}
       </span>
-      <button (click)="counter('add')" aria-label="count increment">+</button>
+      <button (click)="counter('add')" aria-label="count increment" class="count-manage-button">+</button>
       <span> X {{cartItem.price}}</span>
       <span class="total-price" aria-live="polite" tabindex="0">
         Rs.{{cartItem.itemTotalCost}}

@@ -25,6 +25,30 @@ html {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: $pink !important;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold !important;
+}
+
+input:focus+label {
+  color: $ab-aqua !important;
+  transform: translateY(-5px) !important;
+}
+
+input:focus {
+  border-bottom: 2px solid $ab-aqua !important;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -41,10 +65,13 @@ mat-dialog-container#cart-modal {
   width: 50rem;
   font-size: 1.6rem;
   font-weight: 600 !important;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  background-color:#efefef ;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  background-color: #efefef;
 }
+
 mat-dialog-container#cart-modal::-webkit-scrollbar {
   display: none;
 }
